@@ -1,6 +1,6 @@
 __author__ = 'andrew.sielen'
 
-from EmailModuleClass import EmailModule
+from Elements.EmailModuleClass import EmailModule
 
 class Intro(EmailModule):
     module_class = "intro"
@@ -17,7 +17,7 @@ class Intro(EmailModule):
     <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="body-table" style="background: #FFFFFF;">
         <tr>
         <td align="center" valign="top">
-        <table border="0" cellpadding="0" cellspacing="0" width="100%" id="current_email-container" style="background: #FFFFFF; max-width:600px; min-width:320">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" id="current_email-container" style="background: #FFFFFF; max-width:600px; min-width:320px">
     """
 
 class End(EmailModule):

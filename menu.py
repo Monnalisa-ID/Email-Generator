@@ -1,6 +1,6 @@
 __author__ = 'andrew.sielen'
-__version__ = 200
-# Basic menu system v2.0
+__version__ = 300
+# Basic menu system v3.0
 
 class AMenu(object):
     """

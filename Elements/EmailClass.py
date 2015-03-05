@@ -1,10 +1,13 @@
 __author__ = 'andrew.sielen'
 
 from datetime import datetime
-import pickle
+
+import dill
 
 from menu import Menu
-from modules import *
+
+from Elements.modules import *
+from Elements.PlaylistClass import *
 
 
 class Email(object):
@@ -123,7 +126,7 @@ class Email(object):
     def save_email(self):
         print("Saving {}-{}".format(self.name, str(self.modified_date)))
         self.modified_date = datetime.today().strftime('%y%m%d')
-        pickle.dump(self, open("AutoEmail-{}-{}.tmt".format(self.name, self.created_date), "wb"))
+        dill.dump(self, open("AutoEmail-{}-{}.tmt".format(self.name, self.created_date), "wb"))
         print("Email Saved")
 
     def build_html(self):
@@ -188,7 +191,7 @@ class Email(object):
                 self.add_module(module=Copy())
 
             def add_playlist():
-                pass
+                self.add_module(module=Playlist())
 
             # self.add_module(module=)
 
@@ -198,7 +201,7 @@ class Email(object):
                        ("Add Tips", add_body_tips),
                        ("Add CTA", add_body_cta),
                        ("Add Copy", add_body_copy),
-                       ("Add Playlis", add_playlist)]
+                       ("Add Playlist", add_playlist)]
             Menu("Add Body", options)
 
         def menu_add_footer():

@@ -1,9 +1,9 @@
-from EmailClass import Email
+from Elements.EmailClass import Email
 
 __author__ = 'andrew.sielen'
 
 from menu import Menu, Load_Menu
-import pickle
+import dill
 import os
 
 class run(object):
@@ -41,7 +41,7 @@ class run(object):
         self.current_email.save_email()
 
     def _load_email(self, file_name):
-        self.current_email = pickle.load(open(file_name, "rb"))
+        self.current_email = dill.load(open(file_name, "rb"))
 
 
     def load_templates(self):
