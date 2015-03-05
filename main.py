@@ -1,7 +1,8 @@
+from EmailClass import Email
+
 __author__ = 'andrew.sielen'
 
-from menu import AMenu, LMenu
-import modules
+from menu import Menu, Load_Menu
 import pickle
 import os
 
@@ -21,10 +22,10 @@ class run(object):
                    ("Save Email", self.menu_save_template)]
         if self.current_email != None:
             print(self.current_email.peek())
-        AMenu("Main Menu", options)
+        Menu("- Main Menu -", choices=options, quit=True)
 
     def menu_create_email(self):
-        self.current_email = modules.Email()
+        self.current_email = Email()
         self.menu_edit_email()
 
     def menu_edit_email(self):
@@ -34,7 +35,7 @@ class run(object):
         pass
 
     def menu_load_email(self):
-        LMenu("Load Email", self.loaded_templates, function=self._load_email)
+        Load_Menu(name="- Load Email- ", choices=self.loaded_templates, function=self._load_email)
 
     def menu_save_template(self):
         self.current_email.save_email()
